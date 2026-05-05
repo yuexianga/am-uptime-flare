@@ -34,7 +34,7 @@ function formatStatusChangeNotification(
   reason: string,
   timeZone: string
 ) {
-  const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  const dateFormatter = new Intl.DateTimeFormat('zh-CN', {
     month: 'numeric',
     day: '2-digit',
     hour: '2-digit',
@@ -49,18 +49,18 @@ function formatStatusChangeNotification(
 
   if (isUp) {
     return {
-      title: `✅ ${monitor.name} is up!`,
-      body: `The service is up again after being down for ${downtimeDuration} minutes.`,
+      title: `✅ ${monitor.name} 已恢复`,
+      body: `服务已恢复，累计中断 ${downtimeDuration} 分钟。`,
     }
   } else if (timeNow == timeIncidentStart) {
     return {
-      title: `🔴 ${monitor.name} is currently down.`,
-      body: `Service is unavailable at ${timeNowFormatted}. Issue: ${reason || 'unspecified'}`,
+      title: `🔴 ${monitor.name} 当前不可用`,
+      body: `服务于 ${timeNowFormatted} 不可用。问题：${reason || '未说明'}`,
     }
   } else {
     return {
-      title: `🔴 ${monitor.name} is still down.`,
-      body: `Service is unavailable since ${timeIncidentStartFormatted} (${downtimeDuration} minutes). Issue: ${reason || 'unspecified'}`,
+      title: `🔴 ${monitor.name} 仍然不可用`,
+      body: `服务自 ${timeIncidentStartFormatted} 起不可用（已持续 ${downtimeDuration} 分钟）。问题：${reason || '未说明'}`,
     }
   }
 }

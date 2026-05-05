@@ -66,7 +66,7 @@ export default function DetailChart({
         callbacks: {
           label: (item: any) => {
             if (item.parsed.y) {
-              return `${item.parsed.y}ms (${iataToCountry(item.raw.loc)})`
+              return `${item.parsed.y}ms（${iataToCountry(item.raw.loc)}）`
             }
           },
         },
@@ -76,7 +76,7 @@ export default function DetailChart({
       },
       title: {
         display: true,
-        text: 'Response times(ms)',
+        text: '响应时间（ms）',
         align: 'start' as const,
       },
     },

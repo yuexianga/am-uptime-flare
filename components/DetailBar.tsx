@@ -2,7 +2,6 @@ import { MonitorState, MonitorTarget } from '@/uptime.types'
 import { getColor } from '@/util/color'
 import { Box, Tooltip } from '@mantine/core'
 import { useResizeObserver } from '@mantine/hooks'
-import { useLayoutEffect, useRef, useState } from 'react'
 const moment = require('moment')
 require('moment-precise-range-plugin')
 
@@ -50,14 +49,13 @@ export default function DetailBar({
         events={{ hover: true, focus: false, touch: true }}
         label={
           Number.isNaN(Number(dayPercent)) ? (
-            'No Data'
+            '暂无数据'
           ) : (
             <>
-              <div>{dayPercent + '% at ' + new Date(dayStart * 1000).toLocaleDateString()}</div>
+              <div>{dayPercent + '% · ' + new Date(dayStart * 1000).toLocaleDateString()}</div>
               {dayDownTime > 0 && (
-                <div>{`Down for ${moment.preciseDiff(moment(0), moment(dayDownTime * 1000))}`}</div>
+                <div>{`中断时长 ${moment.preciseDiff(moment(0), moment(dayDownTime * 1000))}`}</div>
               )}
-              {/* TODO: lantency detail for each bar */}
             </>
           )
         }

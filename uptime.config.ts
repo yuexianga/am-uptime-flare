@@ -1,12 +1,12 @@
 const pageConfig = {
   // Title for your status page
-  title: "数字套利 •「AM科技」's Status Page",
+  title: '数字套利 •「AM科技」状态页',
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
     { link: 'https://amclubss.com', label: '博客', highlight: true },
-    { link: 'https://809098.xyz', label: 'Blog'},
+    { link: 'https://809098.xyz', label: '主站' },
     { link: 'https://youtube.com/@AM_CLUBS', label: 'YouTube' },
-    { link: 'https://github.com/amclubs', label: 'GitHub' }, 
+    { link: 'https://github.com/amclubs', label: 'GitHub' },
   ],
 }
 
@@ -28,7 +28,7 @@ const workerConfig = {
       // `target` is a valid URL
       target: 'https://am.809098.xyz',
       // [OPTIONAL] `tooltip` is ONLY used at status page to show a tooltip
-      tooltip: 'This is a tooltip for this monitor',
+      tooltip: '这是该监控项的提示信息',
       // [OPTIONAL] `statusPageLink` is ONLY used for clickable link at status page
       statusPageLink: 'https://am.809098.xyz',
       // [OPTIONAL] `expectedCodes` is an array of acceptable HTTP response codes, if not specified, default to 2xx
@@ -51,12 +51,10 @@ const workerConfig = {
     // Example TCP Monitor
     {
       id: '809098.xyz',
-      name: 'Blog',
-      // `method` should be `TCP_PING` for tcp monitors
+      name: '主站',
       method: 'GET',
-      // `target` should be `host:port` for tcp monitors
       target: 'https://809098.xyz',
-      tooltip: 'My production server monitor',
+      tooltip: '我的生产服务器监控',
       statusPageLink: 'https://809098.xyz',
       timeout: 10000,
     },
@@ -64,12 +62,12 @@ const workerConfig = {
   notification: {
     // [Optional] apprise API server URL
     // if not specified, no notification will be sent
-    appriseApiServer: "https://apprise.example.com/notify",
+    appriseApiServer: 'https://apprise.example.com/notify',
     // [Optional] recipient URL for apprise, refer to https://github.com/caronc/apprise
     // if not specified, no notification will be sent
-    recipientUrl: "tgram://bottoken/ChatID",
+    recipientUrl: 'tgram://bottoken/ChatID',
     // [Optional] timezone used in notification messages, default to "Etc/GMT"
-    timeZone: "Asia/Shanghai",
+    timeZone: 'Asia/Shanghai',
     // [Optional] grace period in minutes before sending a notification
     // notification will be sent only if the monitor is down for N continuous checks after the initial failure
     // if not specified, notification will be sent immediately
@@ -103,5 +101,4 @@ const workerConfig = {
   },
 }
 
-// Don't forget this, otherwise compilation fails.
 export { pageConfig, workerConfig }

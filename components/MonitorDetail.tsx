@@ -19,8 +19,7 @@ export default function MonitorDetail({
           {monitor.name}
         </Text>
         <Text mt="sm" fw={700}>
-          No data available, please make sure you have deployed your workers with latest config and
-          check your worker status!
+          暂无可用数据，请确认你已经使用最新配置部署 Worker，并检查 Worker 是否正常运行！
         </Text>
       </>
     )
@@ -40,7 +39,6 @@ export default function MonitorDetail({
 
   const uptimePercent = (((totalTime - downTime) / totalTime) * 100).toPrecision(4)
 
-  // Conditionally render monitor name with or without hyperlink based on monitor.url presence
   const monitorNameElement = (
     <Text mt="sm" fw={700} style={{ display: 'inline-flex', alignItems: 'center' }}>
       {monitor.statusPageLink ? (
@@ -65,7 +63,7 @@ export default function MonitorDetail({
         )}
 
         <Text mt="sm" fw={700} style={{ display: 'inline', color: getColor(uptimePercent, true) }}>
-          Overall: {uptimePercent}%
+          总可用率：{uptimePercent}%
         </Text>
       </div>
 

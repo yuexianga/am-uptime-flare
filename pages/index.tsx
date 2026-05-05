@@ -34,7 +34,7 @@ export default function Home({
     if (!monitor || !state) {
       return (
         <Text fw={700}>
-          Monitor with id {monitorId} not found!
+          未找到 ID 为 {monitorId} 的监控项！
         </Text>
       )
     }
@@ -58,8 +58,7 @@ export default function Home({
         {state === undefined ? (
           <Center>
             <Text fw={700}>
-              Monitor State is not defined now, please check your worker&apos;s status and KV
-              binding!
+              当前暂无监控状态数据，请检查你的 Worker 运行状态和 KV 绑定是否正确！
             </Text>
           </Center>
         ) : (
@@ -73,19 +72,19 @@ export default function Home({
         <Text size="xs" mt="xs" mb="xs" style={{
           textAlign: 'center'
         }}>
-          Open-source monitoring and status page powered by{' '}
+          开源监控与状态页方案，基于{' '}
           <a href="https://github.com/amclubs/am-uptime-flare" target="_blank">
             UptimeFlare
           </a>{' '}
-          and{' '}
+          和{' '}
           <a href="https://www.cloudflare.com/" target="_blank">
             Cloudflare
           </a>
-          , made with ❤ by{' '}
+          ，由{' '}
           <a href="https://github.com/amclubs" target="_blank">
             amclubs
-          </a>
-          .
+          </a>{' '}
+          用 ❤ 制作。
         </Text>
       </main>
     </>
